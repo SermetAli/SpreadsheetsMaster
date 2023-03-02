@@ -1,0 +1,145 @@
+<HTML xmlns:IE><HEAD>
+<TITLE>Select Date & Time</TITLE>
+<STYLE>
+@media all 
+{
+  IE\:Calendar 
+  {
+    behavior: url("calendar.htc") ;
+    //width : 33%;
+    width : 88%;
+  }
+}
+
+.mycal
+{
+	position: relative;
+	top: 10
+}
+
+</STYLE>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function btnCancel_onclick() {
+
+	window.returnValue = null;
+	window.close();
+}
+function getData(){
+	var returnedData = new Array()
+	returnedData["strYear"]		= cal.year
+	returnedData["strMonth"]	= cal.month
+	returnedData["strDay"]		= cal.day
+	returnedData["strHour"]		= document.all.cmbHour.value
+	returnedData["strMinute"]	= document.all.cmbMinute.value
+	return returnedData;
+}
+function btnOK_onclick() {
+	window.returnValue = getData();
+	window.close();
+}
+
+function window_onload() {
+	/*
+	var strDate = window.dialogArguments;
+	if (strDate != null)
+	{
+		var dateParts = window.dialogArguments.split("/");
+		for (var i = 0; i < dateParts.length; i++)
+		{
+			if (dateParts[i].substr(0, 1) == "0")
+				dateParts[i] = dateParts[i].substr(1, dateParts[i].length-1);
+			dateParts[i] = parseInt(dateParts[i]);
+		}
+		
+		while (cal.readyState != "complete") ;
+		cal.day = dateParts[0];
+		cal.month = dateParts[1];
+		cal.year = dateParts[2];
+	}
+	  LANGUAGE=javascript onload="return window_onload()"
+	*/
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR=lightgrey TEXT=#000000>
+<P><P>
+
+<CENTER CLASS="mycal">
+	<IE:Calendar id="cal" style="color: buttonFace; WIDTH: 300px; 
+	BORDER-TOP: red 3px solid;
+	BORDER-BOTTOM: red 3px solid;
+	BORDER-LEFT: red 3px solid;
+	BORDER-RIGHT: red 3px solid;
+	; HEIGHT: 275px">
+	</IE:Calendar>
+
+	<TABLE>
+		<TR Align="right">
+			<TD>Hour:</TD>
+			<TD><Select id="cmbHour">
+				<Option Value="00" Selected>12AM
+				<Option Value="01">01
+				<Option Value="02">02
+				<Option Value="03">03
+				<Option Value="04">04
+				<Option Value="05">05
+				<Option Value="06">06
+				<Option Value="07">07
+				<Option Value="08">08
+				<Option Value="09">09
+				<Option Value="10">10
+				<Option Value="11">11
+				<Option Value="12">12 PM
+				<Option Value="13">13
+				<Option Value="14">14
+				<Option Value="15">15
+				<Option Value="16">16
+				<Option Value="17">17
+				<Option Value="18">18
+				<Option Value="19">19
+				<Option Value="20">20
+				<Option Value="21">21
+				<Option Value="22">22
+				<Option Value="23">23
+			</SELECT>
+			</TD>
+			<TD>Minutes:</TD>
+			<TD><Select id="cmbMinute">
+				<Option Value="00" Selected>00
+				<Option Value="05">05
+				<Option Value="10">10
+				<Option Value="15">15
+				<Option Value="20">20
+				<Option Value="25">25
+				<Option Value="30">30
+				<Option Value="35">35
+				<Option Value="40">40
+				<Option Value="45">45
+				<Option Value="50">50
+				<Option Value="55">55
+			</TD>
+			</TD>
+		</TR>
+		<TR>
+			<TD>&nbsp</TD><TD>&nbsp</TD><TD>&nbsp</TD><TD>&nbsp</TD><TD>&nbsp</TD>
+		</TR>
+		<TR Align="Center">
+			<TD>
+				<INPUT type="button" value="OK" id=btnOK style="WIDTH: 75px" width=75 LANGUAGE=javascript onclick="return btnOK_onclick()">
+			</TD>
+			<TD>&nbsp</TD><TD>&nbsp</TD><TD>&nbsp</TD>
+			<TD>
+				<INPUT type="button" value="Cancel" id=btnCancel style="WIDTH: 75px" width=75 LANGUAGE=javascript onclick="return btnCancel_onclick()">
+			</TD>
+		</TR>
+	</TABLE>
+</CENTER>
+
+
+
+</BODY>
+</HTML>
